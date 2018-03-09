@@ -1,7 +1,8 @@
 package com.dygstudio.epsms.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * @author: diyaguang
@@ -13,5 +14,19 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("com.dygstudio.epsms.entity")
+@ComponentScan("com.dygstudio.epsms.common")
+@EnableAspectJAutoProxy   //使用该注解开启 Spring 对 AspectJ 代理的支持。
+@PropertySource("classpath:epsms.properties")   //这里配置使用指定的配置文件，配置 @Value注解一起使用
 public class EpsmsConfig {
+
+    @Value("${web.anthor}")
+    public String webAnthor;
+
+    @Value("${web.group}")
+    public String webGroup;
+
+    @Bean   //如果使用配置文件方式配合 @Value使用，需要配置一个 PropertySourcesPlaceholderConfigurer 的 Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigure(){
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 }
