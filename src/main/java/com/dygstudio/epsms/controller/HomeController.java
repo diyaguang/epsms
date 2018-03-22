@@ -33,6 +33,7 @@ public class HomeController {
     private Environment environment;
 
     @RequestMapping("/")
+    @ResponseBody
     protected String Home(){
         homeService.Login("dygstudio","0000");
         String anthor = environment.getProperty("web.anthor");

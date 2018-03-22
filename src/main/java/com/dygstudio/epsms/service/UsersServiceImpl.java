@@ -4,6 +4,8 @@ import com.dygstudio.epsms.common.CommonUtil;
 import com.dygstudio.epsms.entity.Users;
 import com.dygstudio.epsms.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -46,5 +48,10 @@ public class UsersServiceImpl implements UsersService {
     }
     public Page<Users> page(){
         return usersRepository.findAll(new PageRequest(1,2));
+    }
+
+    @Cacheable(value = "dygxxxx",key = "#name")
+    public Users getUsersByName(String name){
+        return usersRepository.findByName(name);
     }
 }

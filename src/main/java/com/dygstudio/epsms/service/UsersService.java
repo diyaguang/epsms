@@ -21,4 +21,6 @@ public interface UsersService {
     Users getUsersByNameedQuery(String name,String address);
     List<Users> sort();
     Page<Users> page();
+
+    Users getUsersByName(String name);
 }

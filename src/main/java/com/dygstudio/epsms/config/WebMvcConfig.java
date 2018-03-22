@@ -33,6 +33,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/chatMessage").setViewName("/chat");
         registry.addViewController("/toUpload").setViewName("/upload");   //配置跳转上传页面
+        registry.addViewController("/login").setViewName("/login");
     }
 
     @Bean

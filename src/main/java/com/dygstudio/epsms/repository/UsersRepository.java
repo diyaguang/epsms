@@ -20,4 +20,7 @@ public interface UsersRepository extends JpaRepository<Users,Long> {
     Users withNameAndAddressQuery(@Param("name")String name,@Param("address")String address);
 
     Users withNameAndAddressNamedQuery(String name,String address);
+
+    Users findByNameStartsWith(String name);
+    Users findByName(String name);
 }

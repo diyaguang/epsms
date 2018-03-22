@@ -1,6 +1,7 @@
 package com.dygstudio.epsms.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
@@ -16,6 +17,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @ComponentScan("com.dygstudio.epsms.entity")
 @ComponentScan("com.dygstudio.epsms.common")
 @EnableAspectJAutoProxy   //使用该注解开启 Spring 对 AspectJ 代理的支持。
+//@EnableCaching  //注解启用缓存
 @PropertySource("classpath:epsms.properties")   //这里配置使用指定的配置文件，配置 @Value注解一起使用
 public class EpsmsConfig {
 

@@ -55,4 +55,9 @@ public class UsersController {
     public Page<Users> page(){
         return usersService.page();
     }
+
+    @RequestMapping("/cache")
+    public Users findByNameForCache(String name){
+        return usersService.getUsersByName(name);
+    }
 }
