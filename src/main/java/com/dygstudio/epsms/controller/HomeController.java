@@ -33,12 +33,12 @@ public class HomeController {
     private Environment environment;
 
     @RequestMapping("/")
-    @ResponseBody
-    protected String Home(){
-        homeService.Login("dygstudio","0000");
-        String anthor = environment.getProperty("web.anthor");
-        String group = environment.getProperty("web.group");
-        return "This is epsms web site ! the site group is "+ epsmsConfig.webGroup +",the site anthor is "+epsmsConfig.webAnthor;
+    protected ModelAndView Home(ModelAndView model){
+        //homeService.Login("dygstudio","0000");
+        //String anthor = environment.getProperty("web.anthor");
+        //String group = environment.getProperty("web.group");
+        //return "This is epsms web site ! the site group is "+ epsmsConfig.webGroup +",the site anthor is "+epsmsConfig.webAnthor;
+        return model;
     }
     @RequestMapping("/advice")
     protected String advice(){
